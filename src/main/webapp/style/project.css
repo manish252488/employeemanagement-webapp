@@ -1,0 +1,44 @@
+html,body{
+			margin:0;
+			background: #ddd no-repeat;
+		}.container{
+			width: auto;
+			display: flex;
+			flex-flow: row;
+			justify-content: space-around;
+		}.container>div{
+			width:30%;
+			background: #fff;
+			border-radius: 1vw;
+			padding: 0.5vw;
+		}.container>div>canvas{
+		width:70%;
+		margin:15%;
+		}.container>div>span{
+			display: block;
+			text-align: center;
+			font-size: 1.5vw;
+			padding: 0.5vw;
+			background: linear-gradient(to right,brown,tomato);
+			border:0.1vw solid #fff;
+			color: #fff;
+			text-transform: capitalize;
+			font-weight: 600;
+			letter-spacing: 0.1vw;
+		}#link{
+		background:#fff;
+		border:0.1vw solid #333;
+		padding:1vw;
+		}#link>a{
+		text-decoration:none;
+		color:black;
+		font-weight:700;
+		font-size:bold;
+		text-transform:uppercase;
+		padding:1vw;
+		}#link>a:hover{
+		color:tomato;
+		}#fileupload{
+		background:#fff;
+		
+		}

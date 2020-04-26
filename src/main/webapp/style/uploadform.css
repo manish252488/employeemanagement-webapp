@@ -1,0 +1,50 @@
+input[type=file],input[type=text]{
+display:block;
+width:80%;
+background:#fff;
+padding:0.5vw;
+border-radius:1vw;
+border:0.1vw solid #333;
+cursor:pointer;
+ -webkit-user-select:none;
+color:#333; 
+font-weight:700;
+margin:2vw;
+}
+.lab{
+	font-size:1.4vw;
+	font-weight:bolder;
+	text-transform:capitalize;
+	letter-spacing:0.3vw;
+	display:block;
+	text-shadow:0.1vw 0.1vw 0.2vw #a1a1a1;
+	padding:0.5vw;
+	margin:2vw;
+}
+#uploadfile{
+	width:40%;
+	margin:auto;
+	padding:5vw;
+	border:0.1vw solid #333;
+	border-radius:1vw;
+	background:#ddd;
+}
+#uploadfile>legend
+{
+	margin:auto;
+	text-transform:uppercase;
+	font-weight:600;
+	letter-spacing:0.5vw;
+}
+.btn{
+	width:100%;
+	font-size:1.5vw;
+	text-transform:uppercase;
+}
+#empname{
+	color:#333;
+	font-size:2vw;
+	font-weight:bold;
+	text-transform:bold;
+	margin:1vw;
+}

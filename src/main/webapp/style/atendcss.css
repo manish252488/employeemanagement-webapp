@@ -1,0 +1,21 @@
+#panel1{
+	width:100%;
+	background:orange;
+	min-height: 10vw;
+}#panel2{
+	width: 100%;
+	min-height: 20vw;
+	max-height: 25vw;
+	background: linear-gradient(#ddd,#fff,#ddd);
+	display: flex;
+	flex-flow: row;
+	justify-content: space-around;
+}#panel2>div{
+	width: 30%;
+	height: 20vw;
+	background:silver;
+	
+}#panel3{
+	width: 100%;min-height: 5vw;
+	background: green;
+}

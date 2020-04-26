@@ -1,0 +1,95 @@
+
+#loginpanel
+{
+	width: 50%;
+	background: linear-gradient(#f5be58,#f2624d);
+	background-size: 120%;
+	background-position: left;
+	transition: 0.2s;
+	padding: 2vw;
+	position:relative;
+	margin:auto;
+	top:5vw;
+	border:0.2vw solid silver;
+	border-radius:1vw;
+}
+#loginpanel:hover
+{
+	background-position: center right;
+}
+#loginpanel>fieldset{
+	border:0.2vw solid #fff;
+	border-radius: 1vw;
+	padding: 1vw;
+	width:95%;
+}
+#loginpanel>fieldset>legend{
+	margin: auto;
+	font-weight: bold;
+	font-size: 1.5vw;
+	text-transform: capitalize;
+	color: #fff;
+}
+.labels,.fields,.btn{
+	margin: 1vw;
+}
+.labels
+{
+	display: block;
+	font-size: 1.5vw;
+	font-weight: bold;
+	color: #333;
+	text-transform:uppercase;
+}
+.fields{
+	display: block;
+	width: 90%;
+	padding: 0.7vw;
+	font-size: 1.2vw;
+	border:0.1vw solid #333;
+	border-radius:0.5vw;
+}
+.btn{
+	width: 94%;
+	padding: 0.7vw;
+	font-size: 1.5vw;
+	font-weight: bolder;
+	cursor: pointer;
+	background: linear-gradient(to right,blue,skyblue,navy);
+	background-size: 150%;
+	background-position: left;
+	transition: 0.2s;
+	border-color: transparent;
+	letter-spacing: 0.3vw;
+	color: #fff;
+	border-radius:0.5vw;
+}
+.btn:hover{
+	background-position: center right;
+}
+#errorpanel
+{
+	width: 50%;
+	position: fixed;
+	text-align: center;
+	top: 0;
+	left: 25%;
+	z-index: 2;
+	background: #fff;
+	padding: 2vw;
+	font-size: 2vw;
+	overflow: hidden;
+	color:tomato;
+	border:0.1vw solid #333;
+	display: none;
+}#loginpanel>fieldset>a{
+	margin-left:35%;
+	font-size:1.5vw;
+	font-weight:bolder;
+	color:#fff;
+	text-decoration:none;
+}
+#loginpanel>fieldset>a:hover{
+	color:blue;
+		text-decoration:underline #fff;
+}

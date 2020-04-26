@@ -1,0 +1,8 @@
+#mainbody{
+	width:100%;
+	min-height:5vw;
+	opacity:0.7;
+
+	display:flex;
+	flex-flow:row;
+}

@@ -1,0 +1,118 @@
+html,body{
+	background: #fff no-repeat fixed;
+	background-size: 100%;
+	margin: 0;
+	scrollbar-color: #004e92 #ddd;
+	width: auto;
+}
+@font-face {
+	font-family: dancing;
+	src: url("myfonts/DancingScript.ttf");
+}
+::-webkit-scrollbar{
+	background: #ddd;
+}
+::-webkit-scrollbar-thumb{
+	background: #004e92;
+}
+#registerform{
+	width:80%;
+	padding: 1vw;
+	margin: auto;
+	border :0.3vw solid black;
+	background: #ddd;
+}
+legend{
+	font-weight: bolder;
+	font-size: 2vw;
+	letter-spacing: 0.2vw;
+	margin: auto;
+	color: tomato;
+	text-shadow: 0.1vw 0.1vw 0.2vw #333;
+}
+.reg{
+	width: 10vw;
+	padding: 1vw;
+	font-weight: bold;
+	color: #fff;
+	font-size: 1.2vw;
+	text-shadow: 0.1vw 0.1vw 0.1vw #333;
+	border-radius: 1vw;
+}
+table{
+	width: 100%;
+}
+tr,td{
+	font-weight: bolder;
+	font-size: 0.8vw;
+	color: #333;
+	text-shadow: 0.1vw 0.1vw 0.2vw #fff;
+	text-align: right;
+	padding-top: 1vw;
+	padding-bottom: 1vw;
+	width: 100%;
+	letter-spacing: 0.2vw;
+	text-transform: uppercase;
+}
+input[type=text],input[type=date],select,input[type=email]{
+	padding: 0.5vw;
+	font-size: 1vw;
+	font-weight: 200;
+	border-radius: 1vw;
+	background: linear-gradient(to right,#333,#a1a1a1);
+	background-size: 150%;
+	color: #fff;
+	background-position: left;
+	transition: 0.2s;
+	border:0.1vw solid #333;
+}
+input[type=text]:hover{
+	background-position: right center;
+}
+
+.generateL{
+	border:0.1vw solid #333;
+	padding: 0.5vw;
+	cursor: pointer;
+	background: linear-gradient(to right,tomato,orange,brown);
+	color: #fff;
+	background-size: 150%;
+	background-position: left;
+	transition: 0.2s;
+	border-radius: 1vw;
+	font-weight: bolder;
+	font-size: 1.2vw;
+	text-shadow: none;
+}
+.generateL:hover{
+	background-position:center right;
+}
+#searchresult
+{
+	width:20vw;
+	margin-left:0.2vw;
+	max-width:18vw;
+	border:0.1vw solid #333;
+	max-height:10vw;
+	position:absolute;
+	background:#fff;
+	overflow:hidden;
+	display:none;
+}
+#searchresult>span
+{
+	display:block;
+	padding:0.5vw;
+	font-size:0.8vw;
+	font-weight:bold;
+	background:#333;
+	color:#fff;
+	cursor:pointer;
+	text-shadow:none;
+}
+#deptname{width:100%;}
+#searchresult>span:hover
+{
+		background:#fff;
+	color:#333;
+}

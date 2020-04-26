@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	 xmlns:ctx="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/mvc
+ 	 http://www.springframework.org/schema/mvc/spring-mvc.xsd
+ 	 http://www.springframework.org/schema/tx 
+ 	 http://www.springframework.org/schema/tx/spring-tx.xsd">
+        			<bean id="datasource" class="org.apache.commons.dbcp.BasicDataSource">
+        				<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+        				<property name="url" value="jdbc:mysql://localhost:3306/database1"></property>
+						<property name="username" value="manish25"></property>
+						<property name="password" value="immanish1997@"></property>
+      		  			<property name="defaultAutoCommit" value="true"></property>
+        				<property name="defaultReadOnly" value="false"></property>
+        			</bean>
+        
+        			<bean id="sessionfactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        				<property name="dataSource" ref="datasource"></property>
+        				<property name="hibernateProperties">  
+           					 <props>  
+             				 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>  
+             				 <prop key="hibernate.hbm2ddl.auto">update</prop>  
+             				 <prop key="hibernate.show_sql">true</prop>  
+             				 <prop key="hibernate.allow_update_outside_transaction">true</prop>
+           					 </props>  
+       					 </property>
+       					  <property name="annotatedClasses">
+      						 <list>
+      						 <value>ems.model.Department</value>
+      						 <value>ems.model.Employee</value>
+      						 <value>ems.model.EmployeeMembers</value>
+      						 <value>ems.model.EmsUsers</value>
+      						 <value>ems.model.Salary</value>
+      						 <value>ems.model.Attendence</value>
+      						  </list>
+       					</property>
+       					
+        			</bean>
+        			<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+   					<property name="sessionFactory" ref="sessionfactory" />
+					</bean>
+					<tx:annotation-driven transaction-manager="transactionManager" />
+					<bean id="template" class="org.springframework.orm.hibernate5.HibernateTemplate">
+					<property name="sessionFactory" ref="sessionfactory"></property>
+					<property name="checkWriteOperations" value="false"></property>
+					</bean>
+   </beans>
