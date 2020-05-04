@@ -1,3 +1,4 @@
+<%@page import="ems.functions.EmsImages"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%
@@ -10,17 +11,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>${role}</title>
 </head>
 <link href="style/panel.css" type="text/css" rel="stylesheet">
 <link href="style/Common.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="scripts/jquery.js"></script>
 <script type="text/javascript" src="scripts/common.js"></script>
 <script type="text/javascript" src="scripts/employee.js"></script>
-
 <script type="text/javascript" src="scripts/graphics.js"></script>
+<link href="<%=EmsImages.getMainIconPath()%>" rel="icon" type="png/jpg">
 <meta charset="UTF-8">
-<title>admin</title>
+<title>Admin</title>
 </head>
 <body>
 <div id="updatepanel"><%@include file="changepassword.jsp" %></div>	
@@ -36,21 +37,13 @@
 <fieldset class="content">
 <legend>employee status</legend>
 <article class="article">
-<div id="record1">
-
-</div>
+<div id="record1"></div>
 <div id="record2"></div>
 <div id="record3"></div>
-<div>
-
-<span>report month<input type="text" name="month"></span>
-<span>year<input type="text" name="year"></span>
-<button class="link-btn">generate Report</button>
-</div>
 </article>
 </fieldset>
 <fieldset class="content">
-<legend>employee status</legend>
+<legend>projects status</legend>
 <article class="article">
 status report
 

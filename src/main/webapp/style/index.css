@@ -5,4 +5,23 @@
 
 	display:flex;
 	flex-flow:row;
+}.des{
+	display:flex;
+	flex-flow:row;
+	justify-content: space-between;
+	background: transperent;
+	padding:2vw;
+	margin:2vw;
+}.des>article{
+	display:block;
+	background: #fff;
+	padding:4vw;
+	font-size:1.2vw;
+	letter-spacing:0.2vw;
+	border-left:0.2vw solid #333;
+	border-right:0.2vw solid #333;
+	text-align:center;
+	box-shadow:0 0 4vw #ddd;
+	font-weight:700;
+	line-height:2vw;
 }

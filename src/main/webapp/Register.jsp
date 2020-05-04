@@ -1,3 +1,4 @@
+<%@page import="ems.functions.EmsImages"%>
 <%@page import="org.springframework.orm.hibernate5.HibernateTemplate"%>
 <%@page import="org.hibernate.query.NativeQuery"%>
 <%@page import="java.sql.Date"%>
@@ -14,6 +15,7 @@
 <title>Ems-Register Employee</title>
 <link href="style/Common.css" type="text/css" rel="stylesheet">
 <link href="style/registerpage.css" type="text/css" rel="stylesheet">
+<link href="<%=EmsImages.getMainIconPath()%>" rel="icon" type="png/jpg">
 <script src="scripts/jquery.js"></script>
 <script src="scripts/script2.js"></script>
 <script src="scripts/common.js"></script>

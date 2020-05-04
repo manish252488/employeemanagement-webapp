@@ -1,7 +1,9 @@
 package ems.mail;
 import java.util.*;  
 import javax.mail.*;  
-import javax.mail.internet.*; 
+import javax.mail.internet.*;
+
+import ems.logger.Emslogger; 
 public class MailConfig implements SendMail
 {  
 	private	Properties property;
@@ -9,12 +11,15 @@ public class MailConfig implements SendMail
 	private String user="",pass="";
 	private Session s=null;
 	
+	//properties initialized by bean
 	public Properties getProperty() {
 			return property;
 	}
+	
 	public void setProperty(Properties property) {
 		this.property = property;
 	}
+	
 	public void initialize() {
 		
 		user=property.getProperty("user");
@@ -42,8 +47,13 @@ public class MailConfig implements SendMail
 			msg.setText(body);
 			msg.setSentDate(new Date());
 			Transport.send(msg);
+			Emslogger.info("mail sent to:"+recipient);
 			return true;
-		}catch(Exception e) {e.printStackTrace();return false;}
+		}catch(Exception e) {
+			e.printStackTrace();
+			Emslogger.error("mail unable to send to "+recipient);
+			return false;
+			}
 
 		
 	}

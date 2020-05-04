@@ -1,6 +1,5 @@
 var flag=true;
 $(document).ready(function() {
-
 	$("#notification").delay(4000).hide(10);
 	$("#notificationbutton").click(function(){
 		$("#quickicons").toggle(200);

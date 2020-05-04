@@ -1,4 +1,3 @@
-
 #updatepanel{
 	width:40%;
 	padding:1vw;
@@ -10,13 +9,11 @@
 	background: linear-gradient(to right, #ffb347, #ffcc33);
 	border-radius:1vw;
 }
-fieldset
-{
+fieldset{
 	display:inherit;
 	padding:1.5vw;
 	border-radius:1vw;
 	border:0.2vw solid black;
-	
 }
 legend{
 	font-size:1.5vw;
@@ -25,8 +22,7 @@ legend{
 	margin:auto;
 	text-transform:capitalize;
 }
-.labels
-{
+.labels{
 	font-size: 1.5vw;
 	font-weight: bold;
 	color: #333;
@@ -65,7 +61,8 @@ legend{
 	background:#333;
 	color:#ddd;
 }.content{
-	margin:2vw;
+height:auto;
+margin:2vw;
 }.article{
 	background:mediumseagreen;
 	padding:0.5vw;
@@ -83,9 +80,11 @@ legend{
 	overflow:hidden;
 }.article>div>img{
 	width:4vw;
-	
 }
 .center{
 	text-align:center;
 	background:mediumseagreen;
+}
+.lab{
+	font-size:1vw;
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	 xmlns:ctx="http://www.springframework.org/schema/context"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:mvc="http://www.springframework.org/schema/mvc"
-    xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -14,28 +14,31 @@
  	 http://www.springframework.org/schema/mvc/spring-mvc.xsd
  	 http://www.springframework.org/schema/tx 
  	 http://www.springframework.org/schema/tx/spring-tx.xsd">
-    
-        <bean id="mail" class="ems.mail.MailConfig">
-        <property name="property">
-        <props>
-        
-       	 <prop key="mail.smtp.host">smtp.gmail.com</prop>
-       	 <prop key="mail.smtp.port">587</prop>
-      	 	 <prop key="mail.smtp.auth">true</prop>
-       		<prop key="mail.smtp.starttls.enable">true</prop>        
-     	  <prop key="user">ms252488720915@gmail.com</prop>
-     	  <prop key="password">immanish19997</prop>
-      	</props>
-        
-        </property>
-        </bean>
-       <bean id="deptdao" class="ems.DaoServices.DepartmentDao"></bean>
-       <bean id="empdao" class="ems.DaoServices.EmployeeDao"></bean>
-        <bean id="userdao" class="ems.DaoServices.EmsUserDao"></bean>
-        <bean id="memdao" class="ems.DaoServices.EmployeeMembersDao"></bean>
-   		 <bean id="logindao" class="ems.DaoServices.LoginDao"></bean>
-		<bean id="multipartdao" class="ems.DaoServices.MultipartDao"></bean>
-		<bean id="attendao" class="ems.DaoServices.AttendenceDao"></bean>
-		<bean id="msgdao" class="ems.DaoServices.MsgDao"></bean>
- </beans>
+
+	<bean id="mail" class="ems.mail.MailConfig">
+		<property name="property">
+			<props>
+				<prop key="mail.smtp.host">smtp.gmail.com</prop>
+				<prop key="mail.smtp.port">587</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="user">ms252488720915@gmail.com</prop>
+				<prop key="password">immanish19997</prop>
+			</props>
+
+		</property>
+	</bean>
+	
+	<bean id="deptdao" class="ems.DaoServices.DepartmentDao"></bean>
+	<bean id="empdao" class="ems.DaoServices.EmployeeDao"></bean>
+	<bean id="userdao" class="ems.DaoServices.EmsUserDao"></bean>
+	<bean id="memdao" class="ems.DaoServices.EmployeeMembersDao"></bean>
+	<bean id="logindao" class="ems.DaoServices.LoginDao"></bean>
+	<bean id="multipartdao" class="ems.DaoServices.MultipartDao"></bean>
+	<bean id="attendao" class="ems.DaoServices.AttendenceDao"></bean>
+	<bean id="msgdao" class="ems.DaoServices.MsgDao"></bean>
+	<bean id="mainicon" class="java.lang.String">
+	<constructor-arg value="icons/ICON.png" type="byte[]"></constructor-arg>
+	</bean>
+</beans>
   

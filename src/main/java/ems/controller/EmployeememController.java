@@ -33,12 +33,12 @@ public class EmployeememController {
 		em.setEmp(emp);
 		ModelAndView m=new ModelAndView();
 		if(servicemember.addMember(em)) {
-		m.setViewName("addspouse");
-		m.addObject("emp", emp.getEmpid());
+			m.setViewName("addspouse");
+			m.addObject("emp", emp.getEmpid());
 		}else {
 			m.setViewName("error");
-			}
+		}
 		return m;
-		
+
 	}
 }

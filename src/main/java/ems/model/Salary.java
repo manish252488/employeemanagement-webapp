@@ -18,29 +18,12 @@ public class Salary
 	boolean status;
 	String bank_name;
 	@Column(unique = true)
-	long accno;
+	String accno;
 	String Ifsccode;
 	double salary;
 	double bonus;
-	/**
-	 * 
-	 */
-	public Salary() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	/**
-	 * @param salid
-	 * @param emp
-	 * @param status
-	 * @param bank_name
-	 * @param accno
-	 * @param ifsccode
-	 * @param salary
-	 * @param bonus
-	 */
-	public Salary(int salid, Employee emp, boolean status, String bank_name, long accno, String ifsccode, double salary,
-			double bonus) {
+	public Salary(int salid, Employee emp, boolean status, String bank_name, String accno, String ifsccode,
+			double salary, double bonus) {
 		super();
 		Salid = salid;
 		this.emp = emp;
@@ -50,6 +33,9 @@ public class Salary
 		Ifsccode = ifsccode;
 		this.salary = salary;
 		this.bonus = bonus;
+	}
+	public Salary() {
+		super();
 	}
 	public int getSalid() {
 		return Salid;
@@ -75,10 +61,10 @@ public class Salary
 	public void setBank_name(String bank_name) {
 		this.bank_name = bank_name;
 	}
-	public long getAccno() {
+	public String getAccno() {
 		return accno;
 	}
-	public void setAccno(long accno) {
+	public void setAccno(String accno) {
 		this.accno = accno;
 	}
 	public String getIfsccode() {
@@ -99,8 +85,8 @@ public class Salary
 	public void setBonus(double bonus) {
 		this.bonus = bonus;
 	}
-
-
+	
+	
 	
 
 	

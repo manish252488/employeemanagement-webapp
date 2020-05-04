@@ -10,6 +10,7 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import ems.functions.FileCreater;
+import ems.logger.Emslogger;
 import ems.model.Employee;
 import ems.services.MultipartServices;
 
@@ -20,6 +21,7 @@ HibernateTemplate template=(HibernateTemplate)ctx.getBean("template");
 	Transaction txn;
 	Session session;
 	@Transactional(rollbackOn = Exception.class)
+	
 	public boolean uploadEmployeeImages(List<CommonsMultipartFile> list,int empid) {
 		try {
 		byte[] img=list.get(0).getBytes();
@@ -39,10 +41,12 @@ HibernateTemplate template=(HibernateTemplate)ctx.getBean("template");
 		query.setParameter("i3", pan);
 		query.setParameter("empid",empid);
 		query.executeUpdate();
+		Emslogger.info("images added of employee"+empid);
 		txn.commit();
 		return true;
 		}catch(Exception e) {
 			e.printStackTrace();
+			Emslogger.error("error adding images"+e.getMessage());
 			return false;
 			}
 	}

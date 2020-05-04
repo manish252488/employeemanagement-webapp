@@ -1,10 +1,12 @@
-<%@page import="java.io.BufferedOutputStream"%>
-<%@page import="java.io.OutputStream"%>
+
+<%@page import="ems.functions.EmsImages"%>
+<%@page import="portal.security.MyKey"%>
+<%@page import="portal.security.Decrypt"%>
 <%@page import="org.springframework.context.ApplicationContext"%>
 <%@page import="ems.model.Employee"%>
 <%@page import="org.springframework.orm.hibernate5.HibernateTemplate"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="UTF-8" isELIgnored="false"%>
+    pageEncoding="UTF-8" isELIgnored="false" session="true"%>
  <%
     if(session.getAttribute("empid")==null){
     response.sendRedirect("index.jsp");
@@ -21,9 +23,10 @@
 <link href="style/profile.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="scripts/jquery.js"></script>
 <script type="text/javascript" src="scripts/common.js"></script>
+<link href="<%=EmsImages.getMainIconPath()%>" rel="icon" type="png/jpg">
 </head>
 <body>
-<jsp:include page="main2.jsp"></jsp:include>
+<jsp:include page="main.jsp"></jsp:include>
 <section>
 <div class="maincontainer1">
 <fieldset><legend class="title">image</legend>
@@ -46,10 +49,14 @@
 <legend>Employee detail</legend>
 <table>
 <tr>
+<% Employee emp=(Employee)request.getAttribute("emp"); %>
 <td>name</td><td>${emp.getName().getFname()} ${emp.getName().getMname()} ${emp.getName().getLname()}</td></tr>
 <tr><td>emp id</td><td>${emp.getEmpid()}</td><td>sex</td><td>${emp.getSex()}</td></tr>
 <tr><td>mobile no1</td><td>${emp.getPhoneno1()}</td><td>mobile no2</td><td>${emp.getPhoneno2()}</td></tr>
-<tr><td>adhar no</td><td>${emp.getAdhar()}</td><td>pancard no</td><td>${emp.getPanno()}</td></tr>
+<tr><td>adhar no</td><td>
+<% out.print(Decrypt.decrypt(emp.getAdhar(),MyKey.getKey())); %></td>
+<td>pancard no</td><td>
+<% out.print(Decrypt.decrypt(emp.getPanno(),MyKey.getKey()));  %></td></tr>
 
 </table>
 </fieldset>
@@ -58,7 +65,7 @@
 <tr><td>State:</td><td>${emp.getAdd().getState()}</td><td>City:</td><td>${emp.getAdd().getCity()}</td></tr>
 <tr><td>address</td></tr>
 <tr>
-<td></td><td>${emp.getAdd().getAddress1()}${emp.getAdd().getAddress2()}</td>
+<td></td><td>${emp.getAdd().getAddress1()},${emp.getAdd().getAddress2()}</td>
 </tr>
 <tr><td>birth-date</td><td>${emp.getBirthdate()}</td><td>email</td><td>${emp.getEmail()}</td></tr>
 </table>
@@ -76,10 +83,19 @@
 <fieldset class="container"><legend>salary</legend>
 <table>
 <tr><td>Salary:</td><td>${emp.getSal().getSalary() }</td><td>Bonus:</td><td>${emp.getSal().getBonus()}</td></tr>
-<tr><td>Account no</td><td>${emp.getSal().getAccno()}</td><td>bank name</td><td>${emp.getSal().getBank_name()}</td></tr>
-<tr><td>Ifsc code</td><td>${emp.getSal().getIfsccode()}</td></tr>
+<tr><td>Account no</td><td>
+<% out.print(Decrypt.decrypt(emp.getSal().getAccno(),MyKey.getKey())); %>
+</td><td>bank name</td><td>${emp.getSal().getBank_name()}</td></tr>
+<tr><td>Ifsc code</td><td>
+<% out.print(Decrypt.decrypt(emp.getSal().getIfsccode(), MyKey.getKey())); %></td></tr>
 <tr><td>salary status</td>
-<td>${emp.getSal().isStatus()}</td></tr>
+<td>
+<%
+if(!emp.getSal().isStatus())
+out.print("Admin");
+else 
+out.print("employee");
+%></td></tr>
 
 </table>
 </fieldset>

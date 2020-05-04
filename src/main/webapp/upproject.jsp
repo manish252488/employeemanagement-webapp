@@ -1,3 +1,4 @@
+<%@page import="ems.functions.EmsImages"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -9,6 +10,7 @@
 <title>Insert title here</title>
 <link href="style/Common.css" rel="stylesheet" type="text/css">
 <link href="style/project.css" type="text/css" rel="stylesheet">
+<link href="<%=EmsImages.getMainIconPath()%>" rel="icon" type="png/jpg">
 	<script src="scripts/jquery.js"></script>
 	<script src="scripts/common.js"></script>
 </head>

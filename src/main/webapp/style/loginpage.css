@@ -1,17 +1,17 @@
 
 #loginpanel
 {
-	width: 50%;
-	background: linear-gradient(#f5be58,#f2624d);
+	width: 40%;
+	background: linear-gradient(to right,#ff512f , #dd2476);
 	background-size: 120%;
 	background-position: left;
 	transition: 0.2s;
 	padding: 2vw;
 	position:relative;
 	margin:auto;
-	top:5vw;
+	top:2vw;
 	border:0.2vw solid silver;
-	border-radius:1vw;
+	line-height:5vw;
 }
 #loginpanel:hover
 {
@@ -38,8 +38,10 @@
 	display: block;
 	font-size: 1.5vw;
 	font-weight: bold;
-	color: #333;
+	color: #fff;
 	text-transform:uppercase;
+	letter-spacing:0.2vw;
+	text-shadow:0.1vw 0.1vw 0.2vw #333;
 }
 .fields{
 	display: block;

@@ -20,7 +20,7 @@ public static String getCurrentDate()
 public static String getYear() {
 
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy");  
-	   now = LocalDateTime.now();  
+	   now = LocalDateTime.now(); 
 	   return dtf.format(now);
 }
 public static String getMonth() {
@@ -41,6 +41,10 @@ public static String getHour() {
 	return dtf.format(now);
 }public static String getMin() {
 	DateTimeFormatter dtf=DateTimeFormatter.ofPattern("mm");
+	now=LocalDateTime.now();
+	return dtf.format(now);
+}public static String getSec() {
+	DateTimeFormatter dtf=DateTimeFormatter.ofPattern("ss");
 	now=LocalDateTime.now();
 	return dtf.format(now);
 }

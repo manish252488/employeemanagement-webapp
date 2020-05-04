@@ -1,5 +1,5 @@
-taskshtml,body{
-	background:black no-repeat fixed;
+html,body{
+	background:linear-gradient(to right,#4ca1af , #c4e0e5) no-repeat fixed;
 	margin: 0;
 	scrollbar-color: #004e92 #ddd;
 	scrollbar-width:thin;
@@ -18,7 +18,6 @@ taskshtml,body{
 header{
 	width: auto;
 	background: linear-gradient(45deg, #000428 0%, #004e92 51%, #000428 100%);
-/* background:#fff; */
 	padding: 0.5vw;
 	display: flex;
 	flex-flow: row;
@@ -182,7 +181,7 @@ footer{
 	border-bottom: 0.3vw solid black;
 	border-top: 0.3vw solid black;
 	position: absolute;
-	z-index: 0;
+	z-index: 2;
 }
 nav>button{
 	margin: 1vw;
@@ -331,12 +330,10 @@ nav>button{
 	text-transform:uppercase;
 	text-shadow:0.1vw 0.1vw 0.2vw #333;
 }
-.btnu:hover
-{
+.btnu:hover{
 	transform:scale(1.1);
 }
-.smallicons
-{
+.smallicons{
 	width:3vw;
 	border-radius:50%;
 }

@@ -8,10 +8,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import ems.functions.DateTime;
+import ems.logger.Emslogger;
 import ems.mail.MailConfig;
 import ems.mail.SendMail;
 import ems.model.Employee;
 import ems.model.EmsUsers;
+import ems.security.Encrypt;
+import ems.security.MyKey;
 import ems.services.LoginServices;
 public class LoginDao implements LoginServices {
 
@@ -20,11 +23,14 @@ public class LoginDao implements LoginServices {
 	Session s;
 	@Transactional
 	public String validateLogin(int empid, String password){
+		password=Encrypt.encrypt(password,MyKey.getKey());
 
 		s=template.getSessionFactory().openSession();
 		Transaction tx=s.beginTransaction();
+		try {
 		Employee emp=(Employee)s.get(Employee.class,empid);
 		EmsUsers user=emp.getUser();
+
 		if(password.equals(user.getPassword())){
 			//validate last login if NULL send to change password else forward to profile page
 			if(user.getAdmin()==true) {
@@ -43,6 +49,11 @@ public class LoginDao implements LoginServices {
 				
 		}else
 			return "login";
+		}catch(Exception e) {
+			System.out.print(e);
+			Emslogger.error("loging failed:"+e);
+			return "index";
+		}
 
 	}
 
@@ -60,6 +71,7 @@ public class LoginDao implements LoginServices {
 		s.update(user);
 		SendMail send=new MailConfig();
 		send.sendmail("ems-reset password","your new password:"+pass , recipient);
+		Emslogger.info("new password request by:"+empid);
 		tx.commit();
 		return true;
 	}

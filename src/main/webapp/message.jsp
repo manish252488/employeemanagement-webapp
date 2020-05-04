@@ -15,8 +15,7 @@
 </head>
 <body>
 <%
-JsonArray arr=(JsonArray)request.getAttribute("msglist");
-out.print(arr);
+
 %>
 </body>
 </html>

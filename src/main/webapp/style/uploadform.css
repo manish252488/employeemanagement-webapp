@@ -17,24 +17,27 @@ margin:2vw;
 	text-transform:capitalize;
 	letter-spacing:0.3vw;
 	display:block;
-	text-shadow:0.1vw 0.1vw 0.2vw #a1a1a1;
 	padding:0.5vw;
 	margin:2vw;
 }
 #uploadfile{
 	width:40%;
-	margin:auto;
+	margin-top:3vw;
+	margin-left: 25%;
 	padding:5vw;
-	border:0.1vw solid #333;
+	border:0.3vw solid #fff;
 	border-radius:1vw;
-	background:#ddd;
+	background:#333;
 }
 #uploadfile>legend
 {
 	margin:auto;
 	text-transform:uppercase;
-	font-weight:600;
+	font-weight:900;
 	letter-spacing:0.5vw;
+	color:tomato;
+	font-size:2vw;
+	text-shadow: 0.1vw 0.1vw 0.1vw #fff;
 }
 .btn{
 	width:100%;

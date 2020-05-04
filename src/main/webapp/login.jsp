@@ -1,3 +1,4 @@
+<%@page import="ems.functions.EmsImages"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html>
@@ -6,6 +7,7 @@
 <title>login page</title>
 	<link href="style/loginpage.css" type="text/css" rel="stylesheet">
 	<link href="style/Common.css" type="text/css" rel="stylesheet">
+	<link href="<%=EmsImages.getMainIconPath()%>" rel="icon" type="png/jpg">
 	<script src="scripts/jquery.js"></script>
 	<script src="scripts/common.js"></script>
 	<script src="scripts/loginpage.js"></script>
@@ -37,5 +39,6 @@ response.sendRedirect(session.getAttribute("role")+".jsp");
 <a href="forgotpassword.jsp" >Forgot Password</a> 
 	</fieldset>
 </div>
+<footer></footer>
 </body>
 </html>

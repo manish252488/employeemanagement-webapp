@@ -14,6 +14,8 @@
     
     <%! ApplicationContext ctx=null; %>
 <%
+response.setContentType("json");
+
 int id=Integer.parseInt(request.getParameter("id"));
 
 try{

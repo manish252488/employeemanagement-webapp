@@ -47,7 +47,7 @@ public class Employee {
 	@OneToOne(mappedBy = "emp")
 	Salary sal;
 	String job; 
-	long adhar;
+	String adhar;
 	@Lob @Basic(fetch = FetchType.LAZY)
 	@Column(length=16000000)
 	private byte[] adharimage;
@@ -59,180 +59,213 @@ public class Employee {
 	EmsUsers user;
     @OneToMany(mappedBy = "emp")
     List<EmployeeMembers> member;
-	/**
-	 * 
-	 */
+
+    
 	public Employee() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+	
+
 	public int getEmpid() {
 		return empid;
 	}
+
+
 	public void setEmpid(int empid) {
 		this.empid = empid;
 	}
+
+
 	public Name getName() {
 		return name;
 	}
+
+
 	public void setName(Name name) {
 		this.name = name;
 	}
+
+
 	public char getSex() {
 		return sex;
 	}
+
+
 	public void setSex(char sex) {
 		this.sex = sex;
 	}
+
+
 	public Address getAdd() {
 		return add;
 	}
+
+
 	public void setAdd(Address add) {
 		this.add = add;
 	}
+
+
 	public long getPhoneno1() {
 		return phoneno1;
 	}
+
+
 	public void setPhoneno1(long phoneno1) {
 		this.phoneno1 = phoneno1;
 	}
+
+
 	public long getPhoneno2() {
 		return phoneno2;
 	}
+
+
 	public void setPhoneno2(long phoneno2) {
 		this.phoneno2 = phoneno2;
 	}
+
+
 	public byte[] getImage() {
 		return image;
 	}
+
+
 	public void setImage(byte[] image) {
 		this.image = image;
 	}
+
+
 	public Date getBirthdate() {
 		return birthdate;
 	}
+
+
 	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}
+
+
 	public String getEmail() {
 		return email;
 	}
+
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
 	public Date getUploaddate() {
 		return uploaddate;
 	}
+
+
 	public void setUploaddate(Date uploaddate) {
 		this.uploaddate = uploaddate;
 	}
+
+
 	public Time getUploadtime() {
 		return uploadtime;
 	}
+
+
 	public void setUploadtime(Time uploadtime) {
 		this.uploadtime = uploadtime;
 	}
+
+
 	public Department getDept() {
 		return dept;
 	}
+
+
 	public void setDept(Department dept) {
 		this.dept = dept;
 	}
+
+
 	public Salary getSal() {
 		return sal;
 	}
+
+
 	public void setSal(Salary sal) {
 		this.sal = sal;
 	}
+
+
 	public String getJob() {
 		return job;
 	}
+
+
 	public void setJob(String job) {
 		this.job = job;
 	}
-	public long getAdhar() {
+
+
+	public String getAdhar() {
 		return adhar;
 	}
-	public void setAdhar(long adhar) {
+
+
+	public void setAdhar(String adhar) {
 		this.adhar = adhar;
 	}
+
+
 	public byte[] getAdharimage() {
 		return adharimage;
 	}
+
+
 	public void setAdharimage(byte[] adharimage) {
 		this.adharimage = adharimage;
 	}
+
+
 	public String getPanno() {
 		return panno;
 	}
+
+
 	public void setPanno(String panno) {
 		this.panno = panno;
 	}
+
+
 	public byte[] getPanimage() {
 		return panimage;
 	}
+
+
 	public void setPanimage(byte[] panimage) {
 		this.panimage = panimage;
 	}
+
+
 	public EmsUsers getUser() {
 		return user;
 	}
+
+
 	public void setUser(EmsUsers user) {
 		this.user = user;
 	}
+
+
 	public List<EmployeeMembers> getMember() {
 		return member;
 	}
+
+
 	public void setMember(List<EmployeeMembers> member) {
 		this.member = member;
 	}
-	/**
-	 * @param empid
-	 * @param name
-	 * @param sex
-	 * @param add
-	 * @param phoneno1
-	 * @param phoneno2
-	 * @param image
-	 * @param birthdate
-	 * @param email
-	 * @param uploaddate
-	 * @param uploadtime
-	 * @param dept
-	 * @param sal
-	 * @param job
-	 * @param adhar
-	 * @param adharimage
-	 * @param panno
-	 * @param panimage
-	 * @param user
-	 * @param member
-	 */
-	public Employee(int empid, Name name, char sex, Address add, long phoneno1, long phoneno2, byte[] image,
-			Date birthdate, String email, Date uploaddate, Time uploadtime, Department dept, Salary sal, String job,
-			long adhar, byte[] adharimage, String panno, byte[] panimage, EmsUsers user, List<EmployeeMembers> member) {
-		super();
-		this.empid = empid;
-		this.name = name;
-		this.sex = sex;
-		this.add = add;
-		this.phoneno1 = phoneno1;
-		this.phoneno2 = phoneno2;
-		this.image = image;
-		this.birthdate = birthdate;
-		this.email = email;
-		this.uploaddate = uploaddate;
-		this.uploadtime = uploadtime;
-		this.dept = dept;
-		this.sal = sal;
-		this.job = job;
-		this.adhar = adhar;
-		this.adharimage = adharimage;
-		this.panno = panno;
-		this.panimage = panimage;
-		this.user = user;
-		this.member = member;
-	}
+
+
 	@Override
 	public String toString() {
 		return "Employee [empid=" + empid + ", name=" + name + ", sex=" + sex + ", add=" + add + ", phoneno1="

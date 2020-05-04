@@ -9,6 +9,7 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import ems.functions.DateTime;
 import ems.functions.FileCreater;
+import ems.logger.Emslogger;
 import ems.model.EmsUsers;
 import ems.services.EmsUsersServices;
 public class EmsUserDao implements EmsUsersServices{
@@ -22,14 +23,18 @@ public class EmsUserDao implements EmsUsersServices{
 		try{
 			FileCreater.checkDir(PATH);
 			FileCreater.checkDir(PATH+"/"+user.getEmp());
-		template.save(user);	
+		template.save(user);
+		Emslogger.info("new user added");
 		return true;
 		}catch(Exception e) {
+			e.printStackTrace();
+			Emslogger.error(e.getMessage());
 		return false;
 		}
 }
 	@Transactional
 	public boolean updateUser(EmsUsers user) {
+		try {
 		int empid=user.getEmp().getEmpid();
 		String npass=user.getPassword();
 		String q="update EmsUsers set password=:p,lastLogedIn=:log where emp_empid=:id";
@@ -43,6 +48,11 @@ public class EmsUserDao implements EmsUsersServices{
 		query.executeUpdate();
 		tx.commit();
 		return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+			Emslogger.error("error updating user"+e.getMessage());
+			return false;
+		}
 	}
 	@Transactional
 	public boolean removeUser(EmsUsers user) {

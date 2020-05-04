@@ -19,6 +19,7 @@
 <head>
 <link href="style/panel.css" type="text/css" rel="stylesheet">
 <link href="style/Common.css" type="text/css" rel="stylesheet">
+<link href="<%=EmsImages.getMainIconPath()%>" rel="icon" type="png/jpg">
 <script type="text/javascript" src="scripts/jquery.js"></script>
 <script type="text/javascript" src="scripts/common.js"></script>
 <script type="text/javascript" src="scripts/employee.js"></script>

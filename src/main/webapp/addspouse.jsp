@@ -1,4 +1,5 @@
- <%@page import="ems.model.Employee"%>
+ <%@page import="ems.functions.EmsImages"%>
+<%@page import="ems.model.Employee"%>
 <%@page import="org.springframework.web.servlet.ModelAndView"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
@@ -8,6 +9,7 @@
 <meta charset="ISO-8859-1">
 <title>spouse</title>
 <link href="style/Common.css" type="text/css" rel="stylesheet">
+<link href="<%=EmsImages.getMainIconPath()%>" rel="icon" type="png/jpg">
 <script src="scripts/jquery.js"></script>
 <script src="scripts/common.js"></script>
 <script src="scripts/script2.js"></script>

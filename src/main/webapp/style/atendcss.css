@@ -1,21 +1,59 @@
-#panel1{
-	width:100%;
-	background:orange;
-	min-height: 10vw;
-}#panel2{
+#panel2{
 	width: 100%;
 	min-height: 20vw;
 	max-height: 25vw;
-	background: linear-gradient(#ddd,#fff,#ddd);
+	background:transperent;
 	display: flex;
 	flex-flow: row;
 	justify-content: space-around;
 }#panel2>div{
 	width: 30%;
-	height: 20vw;
-	background:silver;
+	min-height: 100%;
+	background: linear-gradient(to right,#ff512f , #dd2476);
+	color:#fff;
+	font-size:4vw;
+	text-align:center;
+	font-weight:bold;
+	border-radius:1vw;
+	margin:2vw;
+	padding:3vw;
+	text-transform:capitalize;
+	text-shadow:0.2vw 0.2vw 0.2vw #333;
 	
-}#panel3{
+}#panel2>div>button{
+	display:block;
+	width:80%;
+	padding:1vw;
+	font-size:2vw;
+	font-weight:bold;
+	margin:auto;
+	color:#fff;
+	background:  linear-gradient(to right, #00c3ff, #ffff1c);
+	background-size: 150%;
+	transition: 0.1s;
+	opacity: 1;
+	cursor: pointer;
+	border:none;
+	outline:none;
+}
+#panel2>div>button:hover{
+	background-position:right center;
+	transform: scale(1.1);
+}	
+#panel2>div>a{
+	color:#fff;
+	text-shadow:0.1vw 0.1vw 0.2vw #333;
+	text-decoration:none;
+}
+#panel2>div>a:hover{
+	text-shadow:0.3vw 0.3vw 0.4vw #333;
+	text-decoration:underline #333;
+}#panel2>div>a:after{
+	color:violet;
+	text-decoration:none;
+}
+
+#panel3{
 	width: 100%;min-height: 5vw;
 	background: green;
 }

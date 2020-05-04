@@ -1,6 +1,9 @@
 package ems.controller;
+
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.context.ApplicationContext;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import ems.logger.Emslogger;
 import ems.mail.SendMail;
 import ems.services.EmsUsersServices;
 import ems.services.LoginServices;
@@ -25,8 +29,9 @@ public class LoginController {
 	SendMail send=(SendMail)ctx.getBean("mail");
 	ModelAndView mav;
 	@PostMapping("/login")
-	public ModelAndView login(HttpServletRequest req,HttpServletResponse res,ModelMap model)
+	public ModelAndView login(HttpServletRequest req,HttpServletResponse res,ModelMap model,HttpSession ses)
 	{
+		try {
 		int empid =Integer.parseInt(req.getParameter("empid"));
 		String password=req.getParameter("password");
 		String view=login.validateLogin(empid, password);
@@ -36,6 +41,10 @@ public class LoginController {
 		model.put("role",view);
 		}
 		return mav;
+		}catch(Exception e) {
+			Emslogger.error(" "+ e);
+			return new ModelAndView("index");
+		}
 		
 	}
 	@PostMapping("/fpass")

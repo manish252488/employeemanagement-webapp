@@ -1,9 +1,11 @@
+<%@page import="ems.functions.EmsImages"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="org.hibernate.Transaction"%>
 <%@page import="ems.model.Employee"%>
 <%@page import="org.springframework.context.support.ClassPathXmlApplicationContext"%>
 <%@page import="org.springframework.orm.hibernate5.HibernateTemplate"%>
 <%@page import="org.springframework.context.ApplicationContext"%>
+<link href="<%=EmsImages.getMainIconPath()%>" rel="icon" type="png/jpg">
 <%@ page language="java" isELIgnored="false"%>
 
 <script>

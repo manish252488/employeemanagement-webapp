@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import ems.model.Employee;
 import ems.model.EmsUsers;
+import ems.security.Encrypt;
+import ems.security.MyKey;
 import ems.services.EmsUsersServices;
 @SessionAttributes(names = {"empid","role"})
 @Controller
@@ -33,7 +35,7 @@ public class UserController {
 			EmsUsers user=new EmsUsers();
 			Employee emp=new Employee();
 			emp.setEmpid((Integer)model.get("empid"));
-			user.setPassword(newp);
+			user.setPassword(Encrypt.encrypt(newp,MyKey.getKey()));
 			user.setEmp(emp);
 			userservice.updateUser(user);
 			mav=new ModelAndView((String)ses.getAttribute("role"));

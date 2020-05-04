@@ -1,3 +1,5 @@
+<%@page import="ems.functions.EmsImages"%>
+<%@page import="org.hibernate.hql.internal.ast.util.ASTUtil.IncludePredicate"%>
 <%@page import="java.util.List"%>
 <%@page import="org.hibernate.Transaction"%>
 <%@page import="org.hibernate.query.NativeQuery"%>
@@ -9,7 +11,7 @@
 <%@page import="org.springframework.orm.hibernate5.HibernateTemplate"%>
 <%@page import="ems.model.Attendence"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isThreadSafe="true" session="true" isELIgnored="false"%>
   
 <!DOCTYPE html>
 <html>
@@ -18,20 +20,34 @@
 	<title>employee attendence</title>
 	<link href="style/Common.css" rel="stylesheet" type="text/css">
 	<link href="style/atendcss.css" rel="stylesheet" type="text/css">
+	<link href="<%=EmsImages.getMainIconPath()%>" rel="icon" type="png/jpg">
 <script src="scripts/jquery.js"></script>
 <script src="scripts/common.js"></script>
 </head>
-<%@include file="main2.jsp" %>
+<% 
+String file="";
+if(session.getAttribute("role")==null)
+	response.sendRedirect("index");
+String role=(String)session.getAttribute("role");
+
+if(role.equalsIgnoreCase("adminpanel"))
+file="main.jsp";
+else
+file="main2.jsp";
+
+%>
+<jsp:include page="<%=file %>"></jsp:include>
+
 <body>
+
 <%! 
 ApplicationContext ctx=new ClassPathXmlApplicationContext("HibernateTemplate.xml");
 HibernateTemplate template=(HibernateTemplate)ctx.getBean("template");
 Session sess;
 Transaction tx;
 %>
-<div id="panel1"></div>
 <div id="panel2">
-	<div>
+	<div class="blocks">
 		<%
 	//present date
 	int empid=(Integer)session.getAttribute("empid");
@@ -58,6 +74,8 @@ Transaction tx;
 			if(col[3]==null){
 				out.print("complete shift");
 				out.print("<button onclick=\"window.location='completeshift'\">click</button>");
+			}else{
+				out.print("Shift completed");
 			}
 		}
 		else{
@@ -74,7 +92,10 @@ Transaction tx;
 		<a href="applyleave">apply for leave</a>
 	</div>
 	<div>
-		
+		<table>
+		<caption>salary status</caption>
+		<tr></tr>
+		</table>
 	</div>
 </div>
 <div id="panel3">

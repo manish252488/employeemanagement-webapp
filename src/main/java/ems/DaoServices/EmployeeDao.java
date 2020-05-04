@@ -13,6 +13,8 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.gson.JsonObject;
+
+import ems.logger.Emslogger;
 import ems.model.Employee;
 import ems.model.Salary;
 import ems.services.EmployeeServices;
@@ -31,12 +33,14 @@ public class EmployeeDao implements EmployeeServices {
 			int empid=(Integer)s.save(emp);
 			s.save(emp.getSal());
 			tx.commit();
+			Emslogger.info("employee added");
 			s=null;
 			tx=null;
 			return empid;
 			}catch(Exception e) {
 				tx.rollback();
 				e.printStackTrace();
+				Emslogger.error(e.getMessage());
 				return 0;
 			}
 	
@@ -48,12 +52,14 @@ public class EmployeeDao implements EmployeeServices {
 			tx=s.beginTransaction();
 			s.update(emp);
 			tx.commit();
+			Emslogger.info("employee updated:"+emp.getEmpid());
 			s=null;
 			tx=null;
 			return 1;
 			}catch(Exception e) {
 				tx.rollback();
 				e.printStackTrace();
+				Emslogger.error(e.getMessage());
 				return 0;
 			}}
 	@Transactional(rollbackFor = Exception.class)
@@ -69,10 +75,15 @@ public class EmployeeDao implements EmployeeServices {
 			s.update(emp);
 			s.update(emp.getSal());
 			tx.commit();
+			Emslogger.info("employee updated"+emp.getEmpid());
 			s=null;
 			tx=null;
 			return true;
-			}catch(Exception e) {e.printStackTrace();return false;}
+			}catch(Exception e) {
+				e.printStackTrace();
+				Emslogger.error(e.getMessage());
+				return false;
+				}
 	}
 	@Transactional(rollbackFor = Exception.class)
 	public boolean removeEmployee(Employee employee) {
@@ -93,10 +104,12 @@ public class EmployeeDao implements EmployeeServices {
 			s.delete(sal);
 			s.delete(emp);
 			tx.commit();
+			Emslogger.info("employee deleted:"+employee.getEmpid()+":"+employee.getName());
 			s=null;
 			return true;
 		}catch(Exception e) {
 			e.printStackTrace();
+			Emslogger.error(e.getMessage());
 			tx.rollback();
 			return false;
 			}
@@ -104,14 +117,21 @@ public class EmployeeDao implements EmployeeServices {
 	}
 	@Transactional
 	public Employee fetchEmployee(int empid) {
+		try {
 		s=template.getSessionFactory().openSession();
 		tx=s.beginTransaction();
 		Employee emp=(Employee)s.get(Employee.class,empid);
 		tx.commit();
 		return emp;
+		}catch(Exception e) {
+			e.printStackTrace();
+			Emslogger.error("error fetching employee:"+e.getMessage());
+			return null;
+		}
 	}
 @SuppressWarnings("rawtypes")
 public JsonObject getNoOfEmployee() {
+	try {
 	s=template.getSessionFactory().openSession();
 	@SuppressWarnings("unchecked")
 	NativeQuery<Employee> query=s.createNativeQuery("select count(*) from Employee");
@@ -121,10 +141,10 @@ public JsonObject getNoOfEmployee() {
 	JsonObject jobj=new JsonObject();
 	jobj.addProperty("no",ite.next());
 	return jobj;
+	}catch(Exception e) {
+		e.printStackTrace();
+		Emslogger.error("error in getting no of employee:"+e.getMessage());
+		return null;
+	}
 }
-//public static void main(String args[]) {
-//	EmployeeDao d=new EmployeeDao();
-//	JsonObject o=d.getNoOfEmployee();
-//	System.out.println(o.get("no"));
-//}
 }
